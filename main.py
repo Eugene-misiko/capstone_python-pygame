@@ -4,6 +4,7 @@ import os
 WIN = pygame.display.set_mode((900,500))
 pygame.display.set_caption("First Game")
 FPS = 60
+VEL = 5
 
 PLAYER1 = pygame.image.load(os.path.join('assets', 'spaceship_yellow.png'))
 PLAYER_1 = pygame.transform.rotate(pygame.transform.scale(PLAYER1, (55, 40)), 90)
@@ -28,7 +29,14 @@ def main():
             if event.type == pygame.QUIT:
                 run = False
         
-       
+        keys_pressed = pygame.key.get_pressed()
+        if keys_pressed[pygame.K_a]:#key left
+            yellow.x -= VEL
+        if keys_pressed[pygame.K_d]:#key right
+            yellow.x += VEL
+          
+                        
+                
         draw_window(red, yellow)      
 
     pygame.quit()  
