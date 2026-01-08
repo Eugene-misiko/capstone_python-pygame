@@ -9,7 +9,7 @@ if not MONGO_URI:
     raise ValueError("MONGO_URI not found in .env")
 
 client = MongoClient(MONGO_URI)
-db = client["pygame_game"]
+db = client["pygame-game"]
 players = db["players"]
 
 def create_player(username):
