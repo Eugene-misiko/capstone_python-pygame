@@ -1,6 +1,7 @@
 import os
 from pymongo import MongoClient
 from dotenv import load_dotenv
+import certifi
 
 load_dotenv()
 
@@ -8,7 +9,11 @@ MONGO_URI = os.getenv("MONGO_URI")
 if not MONGO_URI:
     raise ValueError("MONGO_URI not found in .env")
 
-client = MongoClient(MONGO_URI)
+client = MongoClient(
+    MONGO_URI,
+    tls=True,
+    tlsCAFile=certifi.where()
+)
 db = client["pygame-game"]
 players = db["players"]
 

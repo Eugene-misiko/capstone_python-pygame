@@ -169,9 +169,10 @@ def post_game_menu(winner):
                     leaderboard_screen()
                 if event.key == pygame.K_q:
                     return "quit"
+                
 
 
-# -------- GAME LOGIC ----
+# ---GAME LOGIC --
 def yellow_handle_movement(keys, yellow, vel):
     if keys[pygame.K_a] and yellow.x > 0:
         yellow.x -= vel
@@ -241,7 +242,7 @@ def draw_window(red, yellow, rb, yb, rh, yh, ln, rn, lvl):
     pygame.display.update()
 
 
-# ---------------- MAIN -------------
+# ----- MAIN ------
 def main():
     left = text_input_screen("FOOLWING", "Enter LEFT Player Name")
     right = text_input_screen("FOOLWING", "Enter RIGHT Player Name")
